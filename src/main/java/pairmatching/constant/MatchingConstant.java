@@ -9,4 +9,6 @@ public class MatchingConstant {
 
     // 수치적 상수
     public static final int MAX_MATCHING_TRIAL = 3;
+    public static final int DEFAULT_PAIR_LENGTH = 2;
+    public static final int REMAINED_PAIR_LENGTH = 3;
 }

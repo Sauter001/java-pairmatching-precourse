@@ -1,27 +1,26 @@
 package pairmatching.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import pairmatching.constant.MatchingConstant;
+import pairmatching.exception.ErrorMessage;
+import pairmatching.exception.MatchingException;
+
+import java.util.Set;
 
 public class Pair {
-    private final List<Crew> crews;
+    private final Set<Crew> crews;
 
-    private Pair(List<Crew> crews) {
+    public Pair(Set<Crew> crews) {
+        validateLength(crews);
         this.crews = crews;
     }
 
-    public static Pair of2(Crew crew1, Crew crew2) {
-        List<Crew> crews = new ArrayList<>();
-        crews.add(crew1);
-        crews.add(crew2);
-        return new Pair(crews);
+    private void validateLength(Set<Crew> crews) {
+        if (crews.size() != MatchingConstant.DEFAULT_PAIR_LENGTH && crews.size() != MatchingConstant.REMAINED_PAIR_LENGTH) {
+            throw new MatchingException(ErrorMessage.PAIR_LENGTH_EXCEED);
+        }
     }
 
-    public static Pair of3(Crew crew1, Crew crew2, Crew crew3) {
-        List<Crew> crews = new ArrayList<>();
-        crews.add(crew1);
-        crews.add(crew2);
-        crews.add(crew3);
-        return new Pair(crews);
+    public Set<Crew> getCrews() {
+        return crews;
     }
 }

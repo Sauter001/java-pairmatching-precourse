@@ -13,6 +13,10 @@ public class MatchingCriteria {
         this.mission = mission;
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
     public Level getLevel() {
         return level;
     }

@@ -2,6 +2,7 @@ package pairmatching.controller;
 
 import pairmatching.constant.MatchingConstant;
 import pairmatching.domain.MatchingCriteria;
+import pairmatching.domain.Pairs;
 import pairmatching.exception.ErrorMessage;
 import pairmatching.exception.MatchingException;
 import pairmatching.service.MatchingService;
@@ -59,6 +60,7 @@ public class MatchingController {
 
     private void processMatching() {
         MatchingCriteria criteria = readMatchingCriteriaWithRetry();
+        Pairs pairs = matchingService.matchPairs(criteria);
 
     }
 
