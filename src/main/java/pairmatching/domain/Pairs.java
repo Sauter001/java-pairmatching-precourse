@@ -12,10 +12,4 @@ public class Pairs {
         this.pairs = pairs;
     }
 
-    public List<PairNameDto> getPairNameDtos() {
-        List<String> pairNames = this.pairs.stream()
-                .map(Pair::getCrews)
-                .collect(Collectors.toList());
-        return new PairNameDto(pairNames);
-    }
 }
