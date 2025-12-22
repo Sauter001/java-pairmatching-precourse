@@ -14,6 +14,12 @@ public class PairController {
     }
 
     public void run() {
-        UserCommand command = inputView.readFunctionSelection();
+        while (true) {
+            UserCommand command = inputView.readFunctionSelection();
+            command.handle();
+            if (command.equals(UserCommand.QUIT)) {
+                break;
+            }
+        }
     }
 }
